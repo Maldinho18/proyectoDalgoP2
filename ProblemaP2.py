@@ -55,7 +55,6 @@ def main():
     except StopIteration:
         return
     
-    out = []
     escribir = sys.stdout.write
     seguir = sys.stdout.flush
     
