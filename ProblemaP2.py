@@ -26,22 +26,22 @@ class DSU:
             instancia.r[ra] += 1
     
 def es_redundante(dsu1: DSU, dsu2: DSU, n: int) -> bool:
-    map12 = {}
-    map21 = {}
+    dict12 = {}
+    dict21 = {}
     
     for v in range(1, n + 1):
         a = dsu1.find(v)
         b = dsu2.find(v)
         
-        prev_b = map12.get(a)
+        prev_b = dict12.get(a)
         if prev_b is None:
-            map12[a] = b
+            dict12[a] = b
         elif prev_b != b:
             return False
         
-        prev_a = map21.get(b)
+        prev_a = dict21.get(b)
         if prev_a is None:
-            map21[b] = a
+            dict21[b] = a
         elif prev_a != a:
             return False
     return True
