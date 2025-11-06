@@ -50,9 +50,9 @@ def generate_file(path, T, N, M):
 
 if __name__ == "__main__":
     # 👉 Ajusta estos parámetros a lo que quieras generar
-    T = 10
-    N = 5
-    M = 6
+    T = 1
+    N = 1000
+    M = 100000
 
     nombre_archivo = "stress_T{}_N{}_M{}.txt".format(T, N, M)
     ruta = Path(nombre_archivo)
