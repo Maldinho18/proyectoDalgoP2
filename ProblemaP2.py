@@ -1,29 +1,29 @@
 import sys
 
 class DSU:
-    __slots__ = ("p", "r")
+    __tuplas__ = ("p", "r")
     
-    def __init__(self, n:int):
-        self.p = list(range(n + 1))
-        self.r = [0] * (n + 1)
+    def __init__(instancia, n:int):
+        instancia.p = list(range(n + 1))
+        instancia.r = [0] * (n + 1)
         
-    def find(self, a: int) -> int:
-        while self.p[a] != a:
-            self.p[a] = self.p[self.p[a]]
-            a = self.p[a]
+    def find(instancia, a: int) -> int:
+        while instancia.p[a] != a:
+            instancia.p[a] = instancia.p[instancia.p[a]]
+            a = instancia.p[a]
         return a
 
-    def union(self, a:int, b:int) -> None:
-        ra, rb = self.find(a), self.find(b)
+    def union(instancia, a:int, b:int) -> None:
+        ra, rb = instancia.find(a), instancia.find(b)
         if ra == rb:
             return 
-        if self.r[ra] < self.r[rb]:
-            self.p[ra] = rb
-        elif self.r[ra] > self.r[rb]:
-            self.p[rb] = ra
+        if instancia.r[ra] < instancia.r[rb]:
+            instancia.p[ra] = rb
+        elif instancia.r[ra] > instancia.r[rb]:
+            instancia.p[rb] = ra
         else:
-            self.p[rb] = ra
-            self.r[ra] += 1
+            instancia.p[rb] = ra
+            instancia.r[ra] += 1
     
 def es_redundante(dsu1: DSU, dsu2: DSU, n: int) -> bool:
     map12 = {}
